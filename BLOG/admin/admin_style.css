@@ -1,0 +1,236 @@
+/*########################### DEFAULTS ######################### */
+/*defaults here represents styles that i want to take effect everywhere on the website*/
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#dfe2e4;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased; /*a property that makes our font very smooth and clean, and goodlooking*/
+}
+
+.center {
+    text-align: center;
+}
+
+/*########################### COMPONENTS ######################### */
+/* header is an example, collection of element that provides or displays a piece of information, i consider as a component */
+
+.message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid red;
+}
+
+.message .success {
+    border: 1px solid green;
+    background-color: white;
+    color: greenyellow;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border-bottom: 1px solid #dfe2e4;
+    padding: 0 8rem; /*1rem=16px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .menu-icon{
+    font-size: 32px;
+    display: none;
+}
+
+header nav {
+    display: flex; 
+    align-items: center;
+    height: inherit; /*assuming the height of its parent which is 80px*/
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+header .navmenu {
+    display: flex; /* to display elements under it in a row direction by default, horizontally from left to right*/
+}
+
+header .navmenu .navitem a {
+    display: block;
+    text-decoration: none;
+    padding: 30px 16px;
+    color: #383838;
+}
+
+header .navmenu .navitem a:hover {
+    color: #65abf3;
+}
+
+header .navmenu .navitem .navicon{
+    transform: translateY(4px);
+    font-size: 16px;
+}
+
+header .navmenu .navitem {
+    position: relative;
+}
+
+header .navmenu .navitem .dropdown  {
+    width: 190px;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    background-color: white;
+    border-radius: 5px;
+    /* -webkit-box-shadow: -1px -12px 28px 7px rgba(0, 0, 0, 0, 11);
+    -moz-box-shadow: -1px -12px 28px 7px rgba(0, 0, 0, 0, 11);
+    box-shadow: -1px -12px 28px 7px rgba(0, 0, 0, 0, 11); */
+    opacity: 0;
+    z-index: -5; /*basically telling it to go under the page, other element should appear on top. Remember that every element has a z-index of 1, 1>*/
+    transform: translateY(35px);
+}
+
+header .navmenu .navitem:hover .dropdown{
+    opacity: 1;
+    z-index: 5;
+    transform: translateY(0);
+    transition: all 0.25s cubic-bezier(0.4, 0.01, 0.165, 0.99); /*a timing which is more elaborate*/
+}
+
+header .navmenu .navitem .dropdown ::after{
+    /* ::after pseudo elementis usually used whenever you want to attach a little object to an element, not wanting to attach an actual HTML element. */
+    content:'';
+    position: absolute;
+    top: -20px;
+    left: 15%;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+header .navmenu .navitem .dropdown li {
+    border-bottom: 1px solid #dfeef3;
+    /* content: '';
+    display: block;
+    margin: 0px 16px;
+    border-bottom: 1px solid red; */
+}
+
+header .navmenu .navitem .dropdown li:last-child ::after {
+    display: none;
+}
+
+header .navmenu .navitem .dropdown a {
+    padding: 16px;
+}    
+
+.logo-wrapper {
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.logo-wrapper span {
+    background-color: #3e86ac;
+    padding: 0 5px;
+    line-height: 0;
+    border-radius: 2px;
+    color: white;
+}
+
+/* HEADER = media queries */
+@media only screen and (max-width: 756px) {
+    header .menu-icon {
+           display: block;
+        }
+
+        header .navmenu{
+            position: fixed;
+            left: 0;
+            top: 0;
+            flex-direction: column;
+            height: 100%;
+            width: 250px;
+            background-color: white;
+            overflow-y: scroll;
+        }
+}
+
+
+
+/* Admin Layout*/
+.page-wrapper {
+    display: flex;
+    min-height: calc(100% - 88px);
+}
+
+.page-wrapper .sidebar {
+    flex-basis: 18%;
+    min-height: 100%;
+    max-width: 260px;
+    background-color: #0a3654;
+}
+
+.page-wrapper .sidebar .list-menu{
+    margin: 0;
+    padding: 0;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+
+.page-wrapper .sidebar .list-menu li a {
+    text-decoration: none;
+    color: #8aa3a9;
+    display: block;
+    padding: 15px 30px;
+}
+
+.page-wrapper .sidebar .list-menu li a:hover {
+    color: white;
+
+}
+
+.page-wrapper .page-content {
+    flex-basis: 82%; /* width of the page content */
+    overflow-x: hidden;
+}
+
+/*Responsive Boxes/Containers*/
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto; 
+}
+
+.sm-box {
+    padding: 32px 10px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.md-box {
+    padding: 32px 10px;
+    width: 75%;
+}
+
+.lg-box {
+    padding: 32px 10px;
+    width: 95%;
+}
+
+/*########################### PAGES ######################### */

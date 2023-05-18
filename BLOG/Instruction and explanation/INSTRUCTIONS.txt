@@ -1,0 +1,15 @@
+INSTRUCTIONS
+Install the apppropriate softwares: PHP
+Configure the Web Server XAMPP (A local sever for hsoting)
+VS Code or Sublime Text (Code Editors ) etc.
+Download the source code.
+And run the source code.
+
+
+EXPLANATIONS
+The homepage displays a list of blog posts in descending order by date.
+You can click to view the full post. Users are permitted to create, delete and edit blog posts.
+
+This source code isn't in it's perfect state yet, another folder will be attached to it.
+
+
